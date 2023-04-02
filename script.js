@@ -4,6 +4,7 @@ function inputFunction() {
     if (e.keyCode === 13) {
       e.preventDefault();
       getWeatherData(locationInput.value);
+      locationInput.value = "";
     }
   });
 }
@@ -14,29 +15,32 @@ async function getWeatherData(location) {
     { mode: "cors" }
   );
   const weatherData = await weather.json();
-  console.log(weatherData);
   returnImportantData(weatherData);
 }
 
 function returnImportantData(data) {
-  let name = data.location.name;
-  let localtime = data.location.localtime;
-  let condition = data.current.condition.text;
-  let temp_c = data.current.temp_c;
-  let temp_f = data.current.temp_f;
-  let humidity = data.current.humidity;
-  let wind_kph = data.current.wind_kph;
-  let wind_mph = data.current.wind_mph;
-  console.log({
-    name,
-    localtime,
-    condition,
-    temp_c,
-    temp_f,
-    humidity,
-    wind_kph,
-    wind_mph,
-  });
+  //Storing object data into variables
+  let weatherData = {
+    name: data.location.name,
+    localtime: data.location.localtime,
+    condition: data.current.condition.text,
+    temp_c: data.current.temp_c,
+    temp_f: data.current.temp_f,
+    humidity: data.current.humidity,
+    wind_kph: data.current.wind_kph,
+    wind_mph: data.current.wind_mph,
+  };
+  const dataDivs = document.querySelectorAll(".weatherData");
+  const dataDivsArray = Array.from(dataDivs);
+
+  //Makes sure to display every data
+  for (const div of dataDivsArray) {
+    let tempID = div.getAttribute("id");
+    for (const names in weatherData) {
+      if (names == tempID.slice(0, tempID.length - 4)) {
+        div.innerHTML = `<p> ${names}: ${weatherData[names]} <br> </p>`;
+      }
+    }
+  }
 }
-getWeatherData();
 inputFunction();

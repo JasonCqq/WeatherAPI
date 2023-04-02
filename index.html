@@ -7,14 +7,30 @@
     <title>Document</title>
     <link rel="stylesheet" href="./style.css" />
     <script src="./script.js" defer></script>
+    <!--Google Inter Font-->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter&display=swap"
+      rel="stylesheet"
+    />
+    <!--------------------->
   </head>
   <body>
     <div id="main">
+      <div id="weatherContainer">
+        <span id="nameData" class="weatherData"></span>
+        <span id="timeData" class="weatherData"></span>
+        <span id="conditionData" class="weatherData"></span>
+        <span id="temp_cData" class="weatherData"></span>
+        <span id="temp_fData" class="weatherData"></span>
+        <span id="humidityData" class="weatherData"></span>
+        <span id="wind_kphData" class="weatherData"></span>
+        <span id="wind_mphData" class="weatherData"></span>
+      </div>
       <div id="search">
         <input type="text" id="location" placeholder="Location..." />
       </div>
-
-      <div id="weatherContainer"></div>
     </div>
   </body>
 </html>
