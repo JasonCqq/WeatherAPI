@@ -17,19 +17,71 @@
     <!--------------------->
   </head>
   <body>
+    <div>
+      <h1 id="title">Weather App</h1>
+    </div>
+
     <div id="main">
-      <div id="weatherContainer">
+      <div id="locationContainer">
         <span id="nameData" class="weatherData"></span>
-        <span id="timeData" class="weatherData"></span>
-        <span id="conditionData" class="weatherData"></span>
-        <span id="temp_cData" class="weatherData"></span>
-        <span id="temp_fData" class="weatherData"></span>
-        <span id="humidityData" class="weatherData"></span>
-        <span id="wind_kphData" class="weatherData"></span>
-        <span id="wind_mphData" class="weatherData"></span>
+        <svg width="100" height="100">
+          <image
+            href="./sun-sunny-svgrepo-com.svg"
+            height="100"
+            width="100"
+          ></image>
+        </svg>
       </div>
+
+      <span id="conditionData" class="weatherData"></span>
+      <span id="localtimeData" class="weatherData"></span>
+
+      <div id="additionalInfoContainer">
+        <div>
+          <svg height="50" width="50">
+            <image
+              href="./temperature-three-quarters-svgrepo-com (1).svg"
+              height="50"
+              width="50"
+            ></image>
+          </svg>
+          <span id="temp_fData" class="weatherData"></span>
+          <span id="temp_cData" class="weatherData"></span>
+        </div>
+
+        <div>
+          <svg height="50" width="50">
+            <image href="./wind-svgrepo-com.svg" height="50" width="50"></image>
+          </svg>
+          <span id="wind_mphData" class="weatherData"></span>
+          <span id="wind_kphData" class="weatherData"></span>
+        </div>
+
+        <div>
+          <svg height="50" width="50">
+            <image
+              href="./humidity-alt-svgrepo-com.svg"
+              height="50"
+              width="50"
+            ></image>
+          </svg>
+          <span id="humidityData" class="weatherData"></span>
+        </div>
+
+        <div>
+          <svg height="50" width="50">
+            <image
+              href="./drop-water-svgrepo-com.svg"
+              height="50"
+              width="50"
+            ></image>
+          </svg>
+          <span id="precip_mmData" class="weatherData"></span>
+        </div>
+      </div>
+
       <div id="search">
-        <input type="text" id="location" placeholder="Location..." />
+        <input type="text" id="searchBar" placeholder="Location..." />
       </div>
     </div>
   </body>

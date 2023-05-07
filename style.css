@@ -14,8 +14,6 @@
 }
 
 body {
-  display: flex;
-
   /*Source = https://codepen.io/nourabusoud/pen/QQNrWq*/
   background-color: var(--space-blue);
   min-height: 100vh;
@@ -44,10 +42,10 @@ body {
     45% 20%, 65% 20%, 85% 30%, 98% 90%, 20% 80%, 50% 80%, 75% 80%, 89% 75%,
     90% 95%, 60% 70%, 65% 40%, 90% 20%;
   background-repeat: no-repeat;
-  animation: twinkle ease-in 0.3s infinite;
+  animation: pulse 3s infinite;
 }
 
-@keyframes twinkle {
+@keyframes pulse {
   to {
     background-image: radial-gradient(circle, var(--star) 20%, transparent 30%),
       radial-gradient(circle, #fff 20%, transparent 30%),
@@ -70,42 +68,84 @@ body {
   }
 }
 
+#title {
+  text-align: center;
+  font-size: 2.75rem;
+  padding-bottom: 10px;
+}
+
 #main {
-  background-color: rgba(0, 0, 0, 0.6);
-  height: 80vh;
+  background-color: rgba(0, 0, 0, 0.3);
+  height: 75vh;
   width: 62vh;
   border-radius: 25px;
   margin: auto;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
 }
 
-#weatherContainer {
-  height: 65vh;
-  width: 55vh;
+#locationContainer {
+  display: flex;
+  align-items: center;
+  margin-left: 8vh;
+  padding-top: 50px;
+}
+
+#locationContainer svg {
+  margin-left: auto;
+  margin-right: 5vh;
 }
 
 #nameData {
   font-weight: bold;
   text-transform: uppercase;
-  font-size: 2rem;
+  font-size: 2.5rem;
   letter-spacing: 2px;
+  align-items: center;
+}
+
+#conditionData,
+#localtimeData {
+  margin-left: 8vh;
+}
+
+#additionalInfoContainer {
+  display: grid;
+  margin-top: 10vh;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
   text-align: center;
 }
 
-#location {
+#additionalInfoContainer div {
+  text-align: center;
+  letter-spacing: 1px;
+}
+
+#search {
+  display: flex;
+  justify-content: center;
+}
+
+#searchBar {
   border: none;
-  border-radius: 25px;
+  border-bottom: 2px solid white;
   height: 5vh;
-  width: 20vh;
+  width: 50vh;
   font-weight: bold;
   font-size: 1rem;
   padding-left: 10px;
   margin-top: 5vh;
-  background-color: rgba(255, 255, 255, 0.3);
+  background: none;
 }
-#location:focus {
+
+#searchBar ::placeholder {
+  color: white;
+}
+
+#searchBar:focus {
   outline: none;
 }

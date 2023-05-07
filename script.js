@@ -1,5 +1,5 @@
 function inputFunction() {
-  const locationInput = document.getElementById("location");
+  const locationInput = document.getElementById("searchBar");
   locationInput.addEventListener("keydown", (e) => {
     if (e.keyCode === 13) {
       e.preventDefault();
@@ -20,27 +20,28 @@ async function getWeatherData(location) {
 
 function returnImportantData(data) {
   //Storing object data into variables
-  let weatherData = {
-    name: data.location.name,
-    localtime: data.location.localtime,
-    condition: data.current.condition.text,
-    temp_c: data.current.temp_c,
-    temp_f: data.current.temp_f,
-    humidity: data.current.humidity,
-    wind_kph: data.current.wind_kph,
-    wind_mph: data.current.wind_mph,
+  const weatherData = {
+    name: `${data.location.name}`,
+    localtime: `Local Time: ${data.location.localtime.slice(10)}`,
+    condition: `${data.current.condition.text}`,
+    temp_f: `${data.current.temp_f} F°`,
+    temp_c: `${data.current.temp_c} C°`,
+    humidity: `${data.current.humidity}% Humidity`,
+    wind_mph: `${data.current.wind_mph} MPH`,
+    wind_kph: `${data.current.wind_kph} KPH`,
+    precip_mm: `${data.current.precip_mm} MM`,
   };
-  const dataDivs = document.querySelectorAll(".weatherData");
-  const dataDivsArray = Array.from(dataDivs);
+  const dataDivs = Array.from(document.querySelectorAll(".weatherData"));
 
   //Makes sure to display every data
-  for (const div of dataDivsArray) {
+  for (const div of dataDivs) {
     let tempID = div.getAttribute("id");
     for (const names in weatherData) {
       if (names == tempID.slice(0, tempID.length - 4)) {
-        div.innerHTML = `<p> ${names}: ${weatherData[names]} <br> </p>`;
+        div.innerHTML = `<p>${weatherData[names]} </p>`;
       }
     }
   }
 }
 inputFunction();
+getWeatherData("paris");
