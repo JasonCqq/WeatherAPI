@@ -1,3 +1,5 @@
+[Project DEMO](https://jason21715.github.io/WeatherAPI/)
+
 # About
 Simple Weather App.   
 Learned to receive data from API with fetch/await, and display it.  
